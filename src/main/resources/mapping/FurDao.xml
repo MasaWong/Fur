@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mw.ankara.fur.dao.FurDao">
+    <insert id="add" parameterType="mw.ankara.fur.model.Fur">
+        INSERT INTO fur (name, thumb, origin, date, time)
+        VALUES (#{name}, #{thumb}, #{origin}, #{date}, #{time})
+    </insert>
+    <select id="get" parameterType="String" resultType="mw.ankara.fur.model.Fur">
+        SELECT *
+        FROM fur
+        WHERE id = #{id}
+    </select>
+    <update id="update" parameterType="mw.ankara.fur.model.Fur">
+        UPDATE fur
+        SET thumb = #{thumb} AND origin = #{origin}
+        WHERE id = #{id}
+    </update>
+    <delete id="delete" parameterType="String">
+        DELETE FROM fur
+        WHERE id = #{id}
+    </delete>
+    <select id="gets" parameterType="mw.ankara.fur.model.PageInfo" resultType="mw.ankara.fur.model.Fur">
+        SELECT *
+        FROM fur
+        LIMIT #{size}
+        OFFSET #{offset}
+    </select>
+</mapper>
