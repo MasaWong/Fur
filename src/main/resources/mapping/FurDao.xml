@@ -23,6 +23,7 @@
     <select id="gets" parameterType="mw.ankara.fur.model.PageInfo" resultType="mw.ankara.fur.model.Fur">
         SELECT *
         FROM fur
+        ORDER BY id DESC
         LIMIT #{size}
         OFFSET #{offset}
     </select>
